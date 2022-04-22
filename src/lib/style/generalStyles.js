@@ -10,3 +10,5 @@ import {
 	transitionCubic,
 	transitionEase,
 } from './theme';
+
+export const Main = styled.main``;
