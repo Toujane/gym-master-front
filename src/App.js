@@ -20,7 +20,7 @@ function App() {
 	}, [jwtToken]);
 
 	return (
-		<UserContext.Provider value={{ jwt: jwtToken, setJWT: setJWTToken }}>
+		<>
 			<Header />
 			<Main>
 				<Routes>
@@ -29,7 +29,7 @@ function App() {
 				</Routes>
 			</Main>
 			<Footer />
-		</UserContext.Provider>
+		</>
 	);
 }
 

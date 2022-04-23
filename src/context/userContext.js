@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export const UserContext = createContext({
-	jwt: '',
-	setJWT: (tokenJWT) => {},
+export const userContext = createContext({
+	user: null,
+	setUser: (userObject) => {},
 });
