@@ -25,7 +25,7 @@ function App() {
 			<Main>
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='*' element={<Error message='Not found' />} />
+					<Route path='*' element={<Error message='Nažalost, ovdje nema ništa.' />} />
 				</Routes>
 			</Main>
 			<Footer />
