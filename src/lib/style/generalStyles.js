@@ -11,4 +11,7 @@ import {
 	transitionEase,
 } from './theme';
 
-export const Main = styled.main``;
+export const Main = styled.main`
+	flex: 1 0 auto;
+	background-color: #f5f5f5;
+`;
