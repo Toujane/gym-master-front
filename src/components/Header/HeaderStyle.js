@@ -1,24 +1,115 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors } from '../../lib/style/theme';
+import { boxShadow, breakpoints, colors, transitionCubic } from '../../lib/style/theme';
+
+import { FiLogOut } from 'react-icons/fi';
 
 export const HeaderWrapper = styled.header`
-	background-color: ${colors.white};
-	box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+	transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 	width: 100%;
-	height: 70px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 15;
+	max-height: auto;
+	height: ${(props) => (props.$ishamburgeropened ? '400px' : '105px')};
+	padding: 10px 0;
+	z-index: 1;
+	margin-bottom: 0px;
+	@media screen and (${breakpoints.desktop}) {
+		height: 85px;
+	}
+
+	background-color: ${colors.blueLight};
+	border-bottom: 1px solid ${colors.grey};
+	box-shadow: ${boxShadow};
 `;
 
-export const Inner = styled.div`
-	height: 100%;
-	display: flex;
-	justify-content: space-between;
+export const HeaderImage = styled.img`
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	width: 100px;
+	object-fit: contain;
+
+	@media screen and (${breakpoints.desktop}) {
+		top: 5px;
+		left: 100px;
+		width: 115px;
+	}
+`;
+
+export const HeaderLinksWrapper = styled.div`
+	position: absolute;
+	width: 90%;
+
+	display: ${(props) => (props.$ishamburgeropened ? 'flex' : 'none')};
+	padding-top: ${(props) => props.$ishamburgeropened && '30px'};
+
+	flex-direction: ${(props) => (props.$ishamburgeropened ? 'column' : 'row')};
+	justify-content: space-around;
 	align-items: center;
 
-	max-width: 1450px;
+	gap: ${(props) => props.$ishamburgeropened && '75px'};
 
-	margin: 0 40px;
+	@media screen and (${breakpoints.desktop}) {
+		height: 30px;
+		margin: 15px 100px;
+		display: flex;
+		justify-content: flex-end;
+		gap: 5%;
+		padding-right: 5%;
+	}
+`;
+
+export const HeaderLink = styled(Link)`
+	display: block;
+	text-decoration: none;
+	font-size: larger;
+	font-weight: 700;
+	color: ${(props) => (props.$highlighted ? colors.blueMedium : colors.yellowLight)};
+	background-color: ${(props) => props.$highlighted && colors.success};
+
+	transition: ${transitionCubic};
+
+	&:hover {
+		cursor: pointer;
+		color: hsl(203, 39%, 44%);
+		color: ${colors.yellowLogo};
+	}
+
+	@media screen and (${breakpoints.desktop}) {
+		display: block;
+	}
+`;
+
+export const HeaderLogOutButton = styled(FiLogOut)`
+	height: 30px;
+	width: 30px;
+	color: ${colors.error};
+
+	transition: ${transitionCubic};
+
+	&:hover {
+		cursor: pointer;
+		color: ${colors.grey};
+	}
+`;
+
+export const HamburgerLinesWrapper = styled.div`
+	position: absolute;
+	right: 50px;
+	top: 32.5px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	cursor: pointer;
+
+	@media screen and (${breakpoints.desktop}) {
+		display: none;
+	}
+`;
+
+export const HamburgerLine = styled.div`
+	height: 4px;
+	width: 40px;
+	background-color: black;
 `;

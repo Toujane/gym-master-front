@@ -6,21 +6,24 @@ export const breakpoints = {
 };
 
 export const colors = {
-	lightBlue: '#57bdeb',
-	mediumBlue: '#1291c9',
-	darkBlue: '#15698f',
-	selectedBlue: '#145a8c',
+	blueLight: '#57bdeb',
+	blueMedium: '#1291c9',
+	blueDark: '#15698f',
+	blueSelected: '#145a8c',
 	white: '#ffffff',
 	black: '#333333',
 	grey: '#bbbbbb',
 	greyOverlay: 'rgba(10, 10, 10, 0.5)',
 	greyBackground: '#f5f5f5',
+	yellowLight: '#ffff6b',
+	yellowLogo: '#f7c36b',
 	transparent: 'rgba(0,0,0,0)',
 	error: '#eb5757',
 	success: '#27ae60',
 };
 
 export const boxShadow = '2px 2px 8px 0 rgba(0, 0, 0, 0.2)';
+export const boxShadowHover = '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)';
 export const boxShadowActive = '2px 2px 5px rgba(0, 0, 0, 0.6)';
 export const borderBlue = 'solid 2px #15698f';
 export const borderBlueThin = 'solid 1px #15698f';
