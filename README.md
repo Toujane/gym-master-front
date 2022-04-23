@@ -15,11 +15,6 @@ Aplikacija je dostupna na [http://localhost:3000](http://localhost:3000) u pregl
 
 Stranica će se osvježiti na promjene, a greške će biti javljene u konzolu.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Priprema aplikaciju za produkciju u `build` direktoriju.\
