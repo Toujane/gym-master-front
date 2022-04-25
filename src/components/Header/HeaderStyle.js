@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.header`
 
 	width: 100%;
 	max-height: auto;
-	height: ${(props) => (props.$ishamburgeropened ? '400px' : '105px')};
+	height: ${(props) => (props.$ishamburgeropened ? '400px' : '50px')};
 	padding: 10px 0;
 	z-index: 1;
 	margin-bottom: 0px;
@@ -24,13 +24,12 @@ export const HeaderWrapper = styled.header`
 
 export const HeaderImage = styled.img`
 	position: absolute;
-	top: 20px;
-	left: 50px;
-	width: 100px;
+	top: 5px;
+	left: 40px;
+	width: 60px;
 	object-fit: contain;
 
 	@media screen and (${breakpoints.desktop}) {
-		top: 5px;
 		left: 100px;
 		width: 115px;
 	}
@@ -41,7 +40,7 @@ export const HeaderLinksWrapper = styled.div`
 	width: 90%;
 
 	display: ${(props) => (props.$ishamburgeropened ? 'flex' : 'none')};
-	padding-top: ${(props) => props.$ishamburgeropened && '30px'};
+	padding-top: ${(props) => props.$ishamburgeropened && '100px'};
 
 	flex-direction: ${(props) => (props.$ishamburgeropened ? 'column' : 'row')};
 	justify-content: space-around;
@@ -49,7 +48,13 @@ export const HeaderLinksWrapper = styled.div`
 
 	gap: ${(props) => props.$ishamburgeropened && '75px'};
 
+	@media screen and (${breakpoints.tablet}) {
+		padding-top: ${(props) => props.$ishamburgeropened && '75px'};
+		flex-direction: ${(props) => (props.$ishamburgeropened ? 'row' : 'column')};
+	}
+
 	@media screen and (${breakpoints.desktop}) {
+		flex-direction: ${(props) => (props.$ishamburgeropened ? 'column' : 'row')};
 		height: 30px;
 		margin: 15px 100px;
 		display: flex;
@@ -96,10 +101,10 @@ export const HeaderLogOutButton = styled(FiLogOut)`
 export const HamburgerLinesWrapper = styled.div`
 	position: absolute;
 	right: 50px;
-	top: 32.5px;
+	top: 15px;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 5px;
 
 	cursor: pointer;
 
@@ -110,6 +115,6 @@ export const HamburgerLinesWrapper = styled.div`
 
 export const HamburgerLine = styled.div`
 	height: 4px;
-	width: 40px;
+	width: 30px;
 	background-color: black;
 `;
