@@ -36,7 +36,7 @@ const Header = () => {
 			<HeaderWrapper $ishamburgeropened={isHamburgerOpened}>
 				<HeaderImage alt='Logo image' src={logoImage} />
 				<HeaderLinksWrapper $ishamburgeropened={isHamburgerOpened}>
-					{context.user != null && <Button>Odabir termina</Button>}
+					{context.user !== null && <Button>Odabir termina</Button>}
 					{!context.user && (
 						<Button
 							variant='light'
@@ -52,7 +52,7 @@ const Header = () => {
 							Upravljačka ploča
 						</HeaderLink>
 					)}
-					{context.user?.jwt != '' && <HeaderLogOutButton onClick={handleLogOut} />}
+					{context.user?.jwt !== '' && <HeaderLogOutButton onClick={handleLogOut} />}
 				</HeaderLinksWrapper>
 				<HamburgerLinesWrapper
 					onClick={() => setIsHamburgerOpened((currentState) => !currentState)}
