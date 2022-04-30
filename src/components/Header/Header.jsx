@@ -8,11 +8,14 @@ import {
 	HeaderLogOutButton,
 	HeaderWrapper,
 } from './HeaderStyle';
+import { Badge, Modal } from 'react-bootstrap';
 
 import logoImage from '../../assets/images/logo-transparent.png';
 import { userContext } from '../../context/userContext';
 import { useNavigate } from 'react-router';
 import { Button } from 'react-bootstrap';
+import Login from '../login/Login';
+import Register from '../register/Register';
 
 const Header = () => {
 	const context = useContext(userContext);
@@ -25,6 +28,9 @@ const Header = () => {
 		navigate('/');
 	};
 
+	const [modalShow, setModalShow] = useState(false);
+	const [isLogin, setIsLogin] = useState(true);
+
 	return (
 		<>
 			<HeaderWrapper $ishamburgeropened={isHamburgerOpened}>
@@ -32,14 +38,14 @@ const Header = () => {
 				<HeaderLinksWrapper $ishamburgeropened={isHamburgerOpened}>
 					{context.user != null && <Button>Odabir termina</Button>}
 					{!context.user && (
-						<HeaderLink to='/register' onClick={() => setIsHamburgerOpened(false)}>
-							Registracija
-						</HeaderLink>
-					)}
-					{!context.user && (
-						<HeaderLink to='/login' onClick={() => setIsHamburgerOpened(false)}>
+						<Button
+							variant='light'
+							onClick={() => {
+								setIsHamburgerOpened(false);
+								setModalShow(true);
+							}}>
 							Prijava
-						</HeaderLink>
+						</Button>
 					)}
 					{context.user?.isAdmin && (
 						<HeaderLink to='/dashboard' onClick={() => setIsHamburgerOpened(false)}>
@@ -56,6 +62,28 @@ const Header = () => {
 					<HamburgerLine />
 				</HamburgerLinesWrapper>
 			</HeaderWrapper>
+			<Modal show={modalShow} onHide={() => setModalShow(false)}>
+				<Modal.Header closeButton>
+					<Modal.Title>
+						<Badge
+							pill
+							bg={isLogin ? 'primary' : 'secondary'}
+							className='me-3 pills'
+							onClick={() => setIsLogin(true)}>
+							Prijava
+						</Badge>
+						/
+						<Badge
+							pill
+							bg={isLogin ? 'secondary' : 'primary'}
+							className='ms-3 pills'
+							onClick={() => setIsLogin(false)}>
+							Registracija
+						</Badge>
+					</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>{isLogin ? <Login /> : <Register />}</Modal.Body>
+			</Modal>
 		</>
 	);
 };

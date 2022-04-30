@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home';
-import { userContext, UserContext } from './context/userContext';
+import { userContext } from './context/userContext';
 import { Main } from './lib/style/generalStyles';
 import Error from './pages/Error/Error';
 import './App.css';
